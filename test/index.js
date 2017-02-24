@@ -17,7 +17,7 @@ describe('General test cases for DAO', function () {
 		})
 
 		it('should be instance of DAO', function () {
-			dao.should.be.Function()
+			dao.init.should.be.Function()
 		})
 	})
 })
