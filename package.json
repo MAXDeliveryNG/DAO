@@ -1,6 +1,6 @@
 {
   "name": "dao",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Data Access Object for providing an abstract interface to the database.",
   "main": "lib/dao.js",
   "scripts": {
