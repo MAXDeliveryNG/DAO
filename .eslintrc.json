@@ -1,0 +1,202 @@
+{
+
+    "plugins": [
+        "mocha"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "seneca"
+    ],
+    "ecmaFeatures": {
+        "generators": true,
+        "forOf": true,
+        "binaryLiterals": true,
+        "classes": true,
+        "defaultParams": true,
+        "modules": true,
+        "templateStrings": true,
+        "destructuring": true,
+        "arrowFunctions": true,
+        "globalReturn": true,
+        "blockBindings": true
+    },
+    "parser": null,
+    "rules": {
+        "hapi/hapi-capitalize-modules": [
+            0,
+            "never"
+        ],
+        "no-return-assign": [
+            2,
+            "always"
+        ],
+        "eol-last": [
+            1,
+            "unix"
+        ],
+        "generator-star-spacing": [
+            2,
+            "before"
+        ],
+        "valid-typeof": 1,
+        "block-spacing": 2,
+        "eqeqeq": [
+            2,
+            "smart"
+        ],
+        "no-const-assign": 2,
+        "dot-notation": [
+            2,
+            {
+                "allowKeywords": true
+            }
+        ],
+        "camelcase": 0,
+        "prefer-const": 2,
+        "comma-dangle": 0,
+        "no-unreachable": 1,
+        "no-eval": 2,
+        "func-style": [
+            2,
+            "declaration",
+            {
+                "allowArrowFunctions": true
+            }
+        ],
+        "no-unneeded-ternary": [
+            1,
+            {
+                "defaultAssignment": true
+            }
+        ],
+        "vars-on-top": 2,
+        "strict": [
+            2,
+            "global"
+        ],
+        "no-case-declarations": 2,
+        "array-bracket-spacing": [
+            2,
+            "always",
+            {
+                "objectsInArrays": true,
+                "arraysInArrays": true
+            }
+        ],
+        "block-scoped-var": 2,
+        "arrow-body-style": [
+            2,
+            "always"
+        ],
+        "consistent-return": 2,
+        "no-console": 2,
+        "comma-spacing": [
+            2,
+            {
+                "after": true
+            }
+        ],
+        "no-redeclare": [
+            1,
+            {
+                "builtinGlobals": true
+            }
+        ],
+        "indent": [
+            2,
+            4
+        ],
+        "no-debugger": 0,
+        "arrow-parens": [
+            2,
+            "always"
+        ],
+        "no-implied-eval": 2,
+        "curly": 2,
+        "no-cond-assign": [
+            2,
+            "always"
+        ],
+        "no-dupe-keys": 2,
+        "no-alert": 2,
+        "no-unused-expressions": [
+            1,
+            {
+                "allowShortCircuit": true,
+                "allowTernary": true
+            }
+        ],
+        "guard-for-in": 2,
+        "yoda": [
+            2,
+            "never"
+        ],
+        "new-parens": 2,
+        "no-use-before-define": 2,
+        "brace-style": [
+            2,
+            "1tbs"
+        ],
+        "no-unused-vars": 1,
+        "callback-return": [
+            2,
+            [
+                "done",
+                "next",
+                "end",
+                "cb",
+                "callback"
+            ]
+        ],
+        "id-length": [
+            1,
+            {
+                "properties": "never",
+                "exceptions": [
+                    "id",
+                    "_",
+                    "e",
+                    "i"
+                ]
+            }
+        ],
+        "comma-style": [
+            1,
+            "last"
+        ],
+        "consistent-this": [
+            2,
+            "that"
+        ],
+        "dot-location": [
+            1,
+            "property"
+        ],
+        "global-require": 2,
+        "no-eq-null": 2,
+        "default-case": 2,
+        "no-ex-assign": 2,
+        "newline-after-var": 0,
+        "no-duplicate-case": 1,
+        "complexity": [
+            2,
+            7
+        ],
+        "valid-jsdoc": [
+            1,
+            {
+                "requireReturn": true,
+                "requireReturnDescription": true,
+                "requireParamDescription": true
+            }
+        ],
+        "arrow-spacing": [
+            1,
+            {
+                "before": true,
+                "after": true
+            }
+        ],
+        "func-names": 0
+    }
+}
