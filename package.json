@@ -4,7 +4,8 @@
   "description": "Data Access Object for providing an abstract interface to the database.",
   "main": "lib/dao.js",
   "scripts": {
-    "test": "mocha  --recursive -R spec"
+    "test": "./node_modules/.bin/mocha  --recursive -R spec",
+    "lint": "./node_modules/.bin/eslint --fix  ./"
   },
   "directories": {
     "lib": "./lib"
@@ -30,6 +31,15 @@
   "homepage": "https://github.com/MAXDeliveryNG/DAO#readme",
   "private": true,
   "devDependencies": {
+    "eslint": "^3.5.0",
+    "eslint-config-airbnb": "^11.1.0",
+    "eslint-config-seneca": "^3.0.0",
+    "eslint-plugin-hapi": "^4.0.0",
+    "eslint-plugin-import": "^1.15.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-mocha": "^4.8.0",
+    "eslint-plugin-react": "^6.2.1",
+    "eslint-plugin-standard": "^2.0.0",
     "mocha": "^3.2.0",
     "should": "^11.2.0"
   }
