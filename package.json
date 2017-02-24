@@ -4,7 +4,10 @@
   "description": "Data Access Object for providing an abstract interface to the database.",
   "main": "lib/dao.js",
   "scripts": {
-    "test": "mocha test"
+    "test": "mocha  --recursive -R spec"
+  },
+  "directories": {
+    "lib": "./lib"
   },
   "repository": {
     "url": "git+https://github.com/MAXDeliveryNG/DAO.git",
@@ -25,5 +28,9 @@
     "url": "https://github.com/MAXDeliveryNG/DAO/issues"
   },
   "homepage": "https://github.com/MAXDeliveryNG/DAO#readme",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "mocha": "^3.2.0",
+    "should": "^11.2.0"
+  }
 }
