@@ -14,67 +14,67 @@ const set = require('lodash/set');
 const wkx = require('wkx');
 
 module.exports = (bookshelf) => {
-	const BaseModel = bookshelf.Model;
+    const BaseModel = bookshelf.Model;
 
-	bookshelf.Model = BaseModel.extend({
-		geography: null,
-		geometry: null,
+    bookshelf.Model = BaseModel.extend({
+        geography: null,
+        geometry: null,
 
-		format(attributes) {
-			let omitFields = [];
+        format(attributes) {
+            let omitFields = [];
 
-			// Convert geography attributes to raw ST_MakePoint calls with [lon, lat] as bindings
-			if (this.geography) {
-				Object.keys(this.geography).forEach((key) => {
-					const fields = Array.isArray(this.geography[key]) ? this.geography[key] : ['lon', 'lat'];
-					const values = fields.map(field => get(attributes, field)).filter(value => typeof value === 'number');
+            // Convert geography attributes to raw ST_MakePoint calls with [lon, lat] as bindings
+            if (this.geography) {
+                Object.keys(this.geography).forEach((key) => {
+                    const fields = Array.isArray(this.geography[key]) ? this.geography[key] : ['lng', 'lat'];
+                    const values = fields.map(field => get(attributes, field)).filter(value => typeof value === 'number');
 
-					if (values.length === 2) {
-						attributes[key] = bookshelf.knex.raw('ST_SetSRID(ST_MakePoint(?, ?), 4326)::geography', values);
-					}
+                    if (values.length === 2) {
+                        attributes[key] = bookshelf.knex.raw('ST_SetSRID(ST_MakePoint(?, ?), 4326)::geography', values);
+                    }
 
-					omitFields = [...omitFields, ...fields];
-				});
-			}
+                    omitFields = [...omitFields, ...fields];
+                });
+            }
 
-			// Convert geometry attributes to raw ST_GeomFromGeoJSON and stringify GeoJSON attributes
-			if (this.geometry) {
-				this.geometry.forEach((attr) => {
-					if (attributes[attr]) attributes[attr] = bookshelf.knex.raw('ST_GeomFromGeoJSON(?)', [JSON.stringify(attributes[attr])]);
-				});
-			}
+            // Convert geometry attributes to raw ST_GeomFromGeoJSON and stringify GeoJSON attributes
+            if (this.geometry) {
+                this.geometry.forEach((attr) => {
+                    if (attributes[attr]) attributes[attr] = bookshelf.knex.raw('ST_GeomFromGeoJSON(?)', [JSON.stringify(attributes[attr])]);
+                });
+            }
 
-			// Call parent format method
-			return BaseModel.prototype.format.apply(this, [omit(attributes, omitFields)]);
-		},
+            // Call parent format method
+            return BaseModel.prototype.format.apply(this, [omit(attributes, omitFields)]);
+        },
 
-		parse(attributes) {
-			let omitFields = [];
+        parse(attributes) {
+            let omitFields = [];
 
-			// Parse geography columns to specified fields
-			if (this.geography) {
-				Object.keys(this.geography).forEach((key) => {
-					if (attributes[key]) {
-						const fields = Array.isArray(this.geography[key]) ? this.geography[key] : ['lon', 'lat'];
+            // Parse geography columns to specified fields
+            if (this.geography) {
+                Object.keys(this.geography).forEach((key) => {
+                    if (attributes[key]) {
+                        const fields = Array.isArray(this.geography[key]) ? this.geography[key] : ['lng', 'lat'];
 
-						wkx.Geometry.parse(Buffer.from(attributes[key], 'hex')).toGeoJSON().coordinates.forEach((coordinate, index) => {
-							set(attributes, fields[index], coordinate);
-						});
+                        wkx.Geometry.parse(Buffer.from(attributes[key], 'hex')).toGeoJSON().coordinates.forEach((coordinate, index) => {
+                            set(attributes, fields[index], coordinate);
+                        });
 
-						omitFields.push(key)
-					}
-				});
-			}
+                        omitFields.push(key)
+                    }
+                });
+            }
 
-			// Parse geometry columns to GeoJSON
-			if (this.geometry) {
-				this.geometry.forEach((attr) => {
-					if (attributes[attr]) attributes[attr] = wkx.Geometry.parse(Buffer.from(attributes[attr], 'hex')).toGeoJSON();
-				});
-			}
+            // Parse geometry columns to GeoJSON
+            if (this.geometry) {
+                this.geometry.forEach((attr) => {
+                    if (attributes[attr]) attributes[attr] = wkx.Geometry.parse(Buffer.from(attributes[attr], 'hex')).toGeoJSON();
+                });
+            }
 
-			// Call parent parse method
-			return BaseModel.prototype.parse.apply(this, [omit(attributes, omitFields)]);
-		},
-	});
+            // Call parent parse method
+            return BaseModel.prototype.parse.apply(this, [omit(attributes, omitFields)]);
+        },
+    });
 };
