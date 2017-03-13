@@ -1,20 +1,20 @@
 {
-  "name": "dao",
-  "version": "1.0.3",
-  "description": "Data Access Object for providing an abstract interface to the database.",
-  "main": "lib/dao.js",
-  "scripts": {
-    "test": "./node_modules/.bin/mocha  --recursive -R spec",
-    "lint": "./node_modules/.bin/eslint --fix  ./"
-  },
-  "directories": {
-    "lib": "./lib"
-  },
-  "repository": {
-    "url": "git+https://github.com/MAXDeliveryNG/DAO.git",
-    "type": "git"
-  },
-  "keywords": [
+    "name": "dao",
+    "version": "1.0.3",
+    "description": "Data Access Object for providing an abstract interface to the database.",
+    "main": "lib/dao.js",
+    "scripts": {
+        "test": "./node_modules/.bin/mocha  --recursive -R spec",
+        "lint": "./node_modules/.bin/eslint --fix  ./"
+    },
+    "directories": {
+        "lib": "./lib"
+    },
+    "repository": {
+        "url": "git+https://github.com/MAXDeliveryNG/DAO.git",
+        "type": "git"
+    },
+    "keywords": [
     "DAO",
     "Data",
     "Access",
@@ -23,40 +23,37 @@
     "Database",
     "abstraction"
   ],
-  "author": "Bernard Ojengwa <bernardojengwa@gmail.com>",
-  "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://github.com/MAXDeliveryNG/DAO/issues"
-  },
-  "homepage": "https://github.com/MAXDeliveryNG/DAO#readme",
-  "private": true,
-  "devDependencies": {
-    "eslint": "^3.5.0",
-    "eslint-config-airbnb": "^11.1.0",
-    "eslint-config-seneca": "^3.0.0",
-    "eslint-plugin-hapi": "^4.0.0",
-    "eslint-plugin-import": "^1.15.0",
-    "eslint-plugin-jsx-a11y": "^2.2.2",
-    "eslint-plugin-mocha": "^4.8.0",
-    "eslint-plugin-react": "^6.2.1",
-    "eslint-plugin-standard": "^2.0.0",
-    "mocha": "^3.2.0",
-    "should": "^11.2.0"
-  },
-  "dependencies": {
-    "bluebird": "^3.4.7",
-    "bookshelf": "^0.10.3",
-    "bookshelf-deep-changed": "^1.0.0",
-    "bookshelf-history": "^1.0.0",
-    "bookshelf-postgis": "^0.2.1",
-    "bookshelf-relationships": "^1.0.1",
-    "bookshelf-scopes": "^1.5.0",
-    "knex": "^0.12.7",
-    "lodash": "^4.17.4",
-    "mariasql": "^0.2.6",
-    "mysql": "^2.13.0",
-    "pg": "^6.1.2",
-    "sqlite3": "^3.1.8",
-    "wkx": "^0.4.1"
-  }
+    "author": "Bernard Ojengwa <bernardojengwa@gmail.com>",
+    "license": "UNLICENSED",
+    "bugs": {
+        "url": "https://github.com/MAXDeliveryNG/DAO/issues"
+    },
+    "homepage": "https://github.com/MAXDeliveryNG/DAO#readme",
+    "private": true,
+    "devDependencies": {
+        "eslint": "^3.5.0",
+        "eslint-config-airbnb": "^11.1.0",
+        "eslint-config-seneca": "^3.0.0",
+        "eslint-plugin-hapi": "^4.0.0",
+        "eslint-plugin-import": "^1.15.0",
+        "eslint-plugin-jsx-a11y": "^2.2.2",
+        "eslint-plugin-mocha": "^4.8.0",
+        "eslint-plugin-react": "^6.2.1",
+        "eslint-plugin-standard": "^2.0.0",
+        "mocha": "^3.2.0",
+        "should": "^11.2.0"
+    },
+    "dependencies": {
+        "bluebird": "^3.4.7",
+        "bookshelf": "^0.10.3",
+        "bookshelf-deep-changed": "^1.0.0",
+        "bookshelf-history": "^1.0.0",
+        "bookshelf-postgis": "^0.2.1",
+        "bookshelf-relationships": "^1.0.1",
+        "bookshelf-scopes": "^1.5.0",
+        "knex": "^0.12.7",
+        "lodash": "^4.17.4",
+        "pg": "^6.1.2",
+        "wkx": "^0.4.1"
+    }
 }
